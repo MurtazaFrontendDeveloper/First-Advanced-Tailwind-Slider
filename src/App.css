@@ -10,11 +10,11 @@ section::-webkit-scrollbar{
 
 @layer components {
     .FirstSection{
-        @apply w-full lg:h-screen h-[150vh] flex flex-col lg:flex-row justify-center items-center gap-6
+        @apply w-full lg:h-screen overflow-hidden h-[150vh] flex flex-col lg:flex-row justify-center items-center gap-6
         bg-gradient-to-br from-slate-900 via-sky-900 to-indigo-900;
     }
     .main{
-        @apply w-100 h-100 border border-white/10 rounded-2xl relative overflow-hidden
+        @apply w-80 h-100 md:w-100 border border-white/10 rounded-2xl relative overflow-hidden
         bg-white/5 backdrop-blur-md shadow-2xl;
     }
     .main-left img {

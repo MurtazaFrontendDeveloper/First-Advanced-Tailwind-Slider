@@ -188,6 +188,7 @@ section::-webkit-scrollbar {
     align-items: center;
     justify-content: center;
     gap: calc(var(--spacing) * 6);
+    overflow: hidden;
     --tw-gradient-position: to bottom right in oklab;
     background-image: linear-gradient(var(--tw-gradient-stops));
     --tw-gradient-from: var(--color-slate-900);
@@ -206,7 +207,7 @@ section::-webkit-scrollbar {
   .main {
     position: relative;
     height: calc(var(--spacing) * 100);
-    width: calc(var(--spacing) * 100);
+    width: calc(var(--spacing) * 80);
     overflow: hidden;
     border-radius: var(--radius-2xl);
     border-style: var(--tw-border-style);
@@ -224,6 +225,9 @@ section::-webkit-scrollbar {
     --tw-backdrop-blur: blur(var(--blur-md));
     -webkit-backdrop-filter: var(--tw-backdrop-blur,) var(--tw-backdrop-brightness,) var(--tw-backdrop-contrast,) var(--tw-backdrop-grayscale,) var(--tw-backdrop-hue-rotate,) var(--tw-backdrop-invert,) var(--tw-backdrop-opacity,) var(--tw-backdrop-saturate,) var(--tw-backdrop-sepia,);
     backdrop-filter: var(--tw-backdrop-blur,) var(--tw-backdrop-brightness,) var(--tw-backdrop-contrast,) var(--tw-backdrop-grayscale,) var(--tw-backdrop-hue-rotate,) var(--tw-backdrop-invert,) var(--tw-backdrop-opacity,) var(--tw-backdrop-saturate,) var(--tw-backdrop-sepia,);
+    @media (width >= 48rem) {
+      width: calc(var(--spacing) * 100);
+    }
   }
   .main-left img {
     position: absolute;
