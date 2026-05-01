@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="src/Master.css">
+    <link rel="stylesheet" href="src/main.css">
+</head>
+<body>
+    <main class="FirstSection">
+            <div class="main main-left">
+            <img src="src/img/1st-Website-Header.png" alt="">
+            <img src="src/img/1st-Website-Header.png" alt="">
+            <img src="src/img/1st-Website-Header.png" alt="">
+        </div>
+        <div class="main main-right">
+            <figure class="buttons">
+                <!-- <button class="btn btn-primary">Send</button>
+                <button class="btn btn-Danger">Delet</button>
+                <button class="btn btn-secendary">Save</button> -->
+            </figure>
+            <form class="form">
+                <input class="inputs inputs-name" type="text" autofocus placeholder="Enter Your Name sir/maam">
+                <input class="inputs inputs-Password" type="password" placeholder="Enter Your Password">
+                <input class="inputs inputs-Message" type="text" placeholder="Type Your message here">
+            </form>
+        </div>
+    </main>
+</body>
+<script>
+    const spanfigure = document.querySelector('.buttons')
+
+    const imgdiv = document.querySelectorAll('.main-left img')
+
+    
+    const Btnclass = ['btn-primary','btn-Danger','btn-secendary']
+
+
+    for(let i = 0; i<imgdiv.length; i++){
+        let span = document.createElement('button')
+        span.classList.add('btn')
+        span.classList.add(Btnclass[i])
+        span.textContent = i + 1;
+        spanfigure.appendChild(span)
+    }
+    
+    
+    let button = document.querySelectorAll('.buttons>button')
+    if (button.length > 0) {
+        button[0].classList.add('active')
+        imgslider(0)
+    }
+    button.forEach((btn,index)=>{
+        btn.addEventListener('click',()=>{
+            if(btn.classList.contains('active')) return
+            let isalready = btn.classList.contains('active')
+            button.forEach((btn)=> btn.classList.remove('active'))
+            if(!isalready){
+                btn.classList.add('active')
+            }
+            imgslider(index)
+        })
+    })
+
+    function imgslider (i){
+        let imgslide = imgdiv[i]
+        let imagesslider = imgslide.classList.contains('ON')
+        imgdiv.forEach((img)=> img.classList.remove('ON'))
+        if(!imagesslider){
+            imgslide.classList.add('ON')
+        }
+    }
+</script>
+</html>
