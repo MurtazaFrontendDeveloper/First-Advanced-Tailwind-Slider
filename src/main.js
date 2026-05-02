@@ -1,43 +1,42 @@
-let spans = document.querySelector('.spans')
-    let images = document.querySelectorAll('.images>a>img')
-    let content = document.querySelectorAll('.content')
+    const spanfigure = document.querySelector('.buttons')
+
+    const imgdiv = document.querySelectorAll('.main-left img')
+
     
-    for(let i=0; i<images.length; i++){
-        let span = document.createElement('span')
+    const Btnclass = ['btn-primary','btn-Danger','btn-secendary']
+
+
+    for(let i = 0; i<imgdiv.length; i++){
+        let span = document.createElement('button')
         span.classList.add('btn')
-        span.innerText = "Step" + (i + 1)
-        spans.appendChild(span)
+        span.classList.add(Btnclass[i])
+        span.textContent = i + 1;
+        spanfigure.appendChild(span)
     }
-    let btnslide = document.querySelectorAll('.spans>span')
-    btnslide.forEach((btn,index)=>{
+    
+    
+    let button = document.querySelectorAll('.buttons>button')
+    if (button.length > 0) {
+        button[0].classList.add('active')
+        imgslider(0)
+    }
+    button.forEach((btn,index)=>{
         btn.addEventListener('click',()=>{
-        btnslide[0].classList.add('ON') 
-            if(btn.classList.contains('show')) return
-            let isExsist = btn.classList.contains('show')
-            btnslide.forEach((span)=> span.classList.remove('show'))
-            if(!isExsist){
-                btn.classList.add('show')
+            if(btn.classList.contains('active')) return
+            let isalready = btn.classList.contains('active')
+            button.forEach((btn)=> btn.classList.remove('active'))
+            if(!isalready){
+                btn.classList.add('active')
             }
-            ImageSlidr(index)
-            contentSlider(index)
+            imgslider(index)
         })
     })
-    function ImageSlidr(i){
-        let imgslide = images[i]
-        let isalready =imgslide.classList.contains('ON')
-        images.forEach((img)=> img.classList.remove('ON'))
-        if(!isalready){
+
+    function imgslider (i){
+        let imgslide = imgdiv[i]
+        let imagesslider = imgslide.classList.contains('ON')
+        imgdiv.forEach((img)=> img.classList.remove('ON'))
+        if(!imagesslider){
             imgslide.classList.add('ON')
         }
     }
-    function contentSlider(index){
-        let currentContent = content[index]
-        let isalready = currentContent.classList.contains('ON')
-        content.forEach((con)=> con.classList.remove('ON'))
-        if(!isalready){
-            currentContent.classList.add('ON')
-        }
-    }
-    images[0].classList.add('ON')
-    content[0].classList.add('ON')
-    btnslide[0].classList.add('show')
